@@ -3,9 +3,9 @@ public class LinkedListDeque<T> {
     private int size;
 
     private class TNode {
-        public T item;
-        public TNode next;
-        public TNode prev;
+        private T item;
+        private TNode next;
+        private TNode prev;
         public TNode(TNode p, T i, TNode n) {
             this.item = i;
             this.next = n;

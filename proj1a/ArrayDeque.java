@@ -21,11 +21,11 @@ public class ArrayDeque<T> {
         return (index + 1) % boxsize;
     }
 
-    public int firstIndex() {
+    private int firstIndex() {
         return plusOneIndex(nextFirst);
     }
 
-    public int lastIndex() {
+    private int lastIndex() {
         return minusOneIndex(nextLast);
     }
 
@@ -111,7 +111,7 @@ public class ArrayDeque<T> {
         }
         return items[(firstIndex() + index) % boxsize];
     }
-
+    /**
     public static void main(String[] args) {
         ArrayDeque<Integer> deque = new ArrayDeque<>();
         deque.addFirst(1);
@@ -127,4 +127,5 @@ public class ArrayDeque<T> {
         deque.removeLast();
         deque.printDeque();
     }
+     */
 }
