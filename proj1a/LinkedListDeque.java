@@ -1,4 +1,5 @@
 public class LinkedListDeque<T> {
+
     private TNode sentinel;
     private int size;
 
@@ -25,7 +26,6 @@ public class LinkedListDeque<T> {
         sentinel = new TNode(null, null, null);
         sentinel.next = new TNode(sentinel, i, sentinel);
         sentinel.prev = sentinel.next;
-
     }
 
     public void  addFirst(T i) {
@@ -106,5 +106,4 @@ public class LinkedListDeque<T> {
             return getRecursiveHelper(index - 1, current);
         }
     }
-
 }
