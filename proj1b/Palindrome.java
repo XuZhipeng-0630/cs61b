@@ -1,5 +1,5 @@
 public class Palindrome {
-    public static Deque<Character> wordToDeque (String word) {
+    public Deque<Character> wordToDeque(String word) {
         Deque<Character> deque = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
@@ -28,11 +28,12 @@ public class Palindrome {
         Deque<Character> deque = wordToDeque(word);
         return isPalindromeHelper(deque, cc);
     }
-    public boolean isPalindromeHelper(Deque<Character> deque, CharacterComparator cc) {
+    private boolean isPalindromeHelper(Deque<Character> deque, CharacterComparator cc) {
         if (deque.isEmpty() || deque.size() == 1) {
             return true;
         }  else {
-            return cc.equalChars(deque.removeFirst(), deque.removeLast()) && isPalindromeHelper(deque, cc);
+            boolean b = cc.equalChars(deque.removeFirst(), deque.removeLast());
+            return b && isPalindromeHelper(deque, cc);
         }
     }
 }
