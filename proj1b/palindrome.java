@@ -1,4 +1,4 @@
-public class palindrome {
+public class Palindrome {
     public static Deque<Character> wordToDeque (String word) {
         Deque<Character> deque = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i++) {
