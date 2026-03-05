@@ -1,0 +1,38 @@
+public class palindrome {
+    public static Deque<Character> wordToDeque (String word) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            deque.addLast(c);
+        }
+        return deque;
+    }
+    public boolean isPalindrome(String word) {
+        if (word == null) {
+            return false;
+        }
+        Deque<Character> deque = wordToDeque(word);
+        return isPalindromeHelper(deque);
+    }
+    private boolean isPalindromeHelper(Deque<Character> deque) {
+        if (deque.isEmpty() || deque.size() == 1) {
+            return true;
+        } else {
+            return deque.removeFirst().equals(deque.removeLast()) && isPalindromeHelper(deque);
+        }
+    }
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word == null) {
+            return false;
+        }
+        Deque<Character> deque = wordToDeque(word);
+        return isPalindromeHelper(deque, cc);
+    }
+    public boolean isPalindromeHelper(Deque<Character> deque, CharacterComparator cc) {
+        if (deque.isEmpty() || deque.size() == 1) {
+            return true;
+        }  else {
+            return cc.equalChars(deque.removeFirst(), deque.removeLast()) && isPalindromeHelper(deque, cc);
+        }
+    }
+}
